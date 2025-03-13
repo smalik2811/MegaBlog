@@ -13,25 +13,23 @@ function App() {
       .getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(login(userData));
+          dispatch(login({ userData }));
         } else {
           dispatch(logout());
         }
       })
-      .finally(setLoading(false));
-  });
+      .finally(() => setLoading(false));
+  }, []);
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
         <Header />
-        {/* <Outlet /> */} Todo
+        <main>TODO: {/*<Outlet />*/}</main>
         <Footer />
       </div>
     </div>
-  ) : (
-    <div></div>
-  );
+  ) : null;
 }
 
 export default App;
