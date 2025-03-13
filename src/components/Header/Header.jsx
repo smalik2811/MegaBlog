@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <header className="py-3 shadow bg-gray-500">
       <Container>
-        <nav className="flex items-baseline">
+        <nav className="flex items-center">
           <div className="mr-4">
             <Link to="/">
               <Logo />

@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="w-full p-6 md:w-1/2 lg:w5/12">
             <div className="flex h-full flex-col justify-between">
               <div className="mb-4 inline-flex items-center">
-                <Logo width="100px" />
+                <Logo width="300px" />
               </div>
               <div>
                 <p>&copy; Copyright 2025. All Rights Reserverd.</p>
