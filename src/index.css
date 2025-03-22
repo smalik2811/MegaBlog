@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* Ensure the html and body take up the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the root element takes up the remaining space */
+#root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the main content area grows to take up the remaining space */
+main {
+    flex-grow: 1;
+}
+
+/* Ensure the footer stays at the bottom */
+footer {
+    margin-top: auto;
+}

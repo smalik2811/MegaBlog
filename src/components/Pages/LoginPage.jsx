@@ -1,9 +1,11 @@
-import { Login as LoginForm } from "../index.js";
+import { LoginForm } from "../index.js";
 
-export function Login() {
+function LoginPage() {
     return (
         <div className="py-8">
             <LoginForm />
         </div>
     );
 }
+
+export default LoginPage;

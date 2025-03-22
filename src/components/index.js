@@ -1,41 +1,45 @@
-import Header from "./Header/Header";
+import AddPostPage from "./Pages/AddPostPage";
+import MyPostsPage from "./Pages/MyPostsPage";
+import AuthLayout from "./Containers/AuthLayout";
+import Button from "./LegacyElements/Button";
+import Container from "./Containers/Container";
+import EditPostPage from "./Pages/EditPostPage";
 import Footer from "./Footer/Footer";
-import Container from "./container/Container";
-import Logo from "./Logo";
-import LogoutBtn from "./Button/LogoutBtn";
-import Button from "./Button/Button";
-import Signup from "./Forms/Signup.jsx";
-import Login from "./Forms/Login.jsx";
-import PostForm from "./Forms/PostForm.jsx";
-import PostCard from "./PostCard.jsx";
-import Home from "./Pages/Home.jsx";
-import AuthLayout from "./Container/AuthLayout.jsx";
-import { Login as LoginPage } from "./Pages/Login.jsx";
-import { Signup as SignupPage } from "./Pages/Signup.jsx";
-import AllPosts from "./Pages/AllPosts.jsx";
-import EditPost from "./Pages/EditPost.jsx";
-import AddPost from "./Pages/AddPost.jsx";
-import Post from "./Pages/Post.jsx";
-import Input from "./Input.jsx";
+import Header from "./Header/Header";
+import HomePage from "./Pages/HomePage";
+import Input from "./LegacyElements/Input";
+import LoginForm from "./Forms/LoginForm";
+import LoginPage from "./Pages/LoginPage";
+import Logo from "./Containers/Logo";
+import LogoutButton from "./LegacyElements/LogoutButton";
+import PostCard from "./Containers/PostCard";
+import PostForm from "./Forms/PostForm";
+import PostPage from "./Pages/PostPage";
+import RTE from "./Containers/RTE";
+import Select from "./LegacyElements/Select";
+import SignupForm from "./Forms/SignupForm";
+import SignupPage from "./Pages/SignupPage";
 
 export {
-    Header,
-    Footer,
-    Container,
-    Logo,
-    LogoutBtn,
-    Button,
-    Login,
-    Signup,
-    PostForm,
-    PostCard,
-    Home,
+    AddPostPage,
+    MyPostsPage,
     AuthLayout,
-    LoginPage,
-    SignupPage,
-    AllPosts,
-    EditPost,
-    AddPost,
-    Post,
+    Button,
+    Container,
+    EditPostPage,
+    Footer,
+    Header,
+    HomePage,
     Input,
+    LoginForm,
+    LoginPage,
+    Logo,
+    LogoutButton,
+    PostCard,
+    PostForm,
+    PostPage,
+    RTE,
+    Select,
+    SignupForm,
+    SignupPage,
 };

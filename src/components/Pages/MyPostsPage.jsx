@@ -1,18 +1,24 @@
+import { Container, PostCard } from "../index.js";
 import databasesService from "../../appwrite/DatabasesService.js";
-import {useEffect, useState} from "react";
-import {Container, PostCard} from "../index.js";
+import { useState, useEffect } from "react";
+import { Query } from "appwrite";
+import { useSelector } from "react-redux";
 
+function MyPostsPage() {
+    const userId = useSelector((state) => state.auth.userId);
 
-function Home() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        databasesService.getPosts().then((posts) => {
-            if (posts) {
-                setPosts(posts.documents);
-            }
-        })
-    });
+        if (userId)
+            databasesService
+                .getPosts([Query.equal("userId", userId)])
+                .then((posts) => {
+                    if (posts) {
+                        setPosts(posts.documents);
+                    }
+                });
+    }, [userId]);
 
     if (posts.length === 0) {
         return (
@@ -21,18 +27,18 @@ function Home() {
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
                             <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
+                                No post available
                             </h1>
                         </div>
                     </div>
                 </Container>
             </div>
-        )
+        );
     } else {
         return (
             <div className="w-full py-8">
                 <Container>
-                    <div className="flex flex-wrap">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {posts.map((post) => (
                             <div key={post.$id} className="p-2 w=1/4">
                                 <PostCard {...post} />
@@ -41,8 +47,8 @@ function Home() {
                     </div>
                 </Container>
             </div>
-        )
+        );
     }
 }
 
-export default Home;
+export default MyPostsPage;

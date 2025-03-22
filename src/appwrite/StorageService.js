@@ -1,7 +1,6 @@
 import getAppWriteClient from "./client.js";
 import config from "../config/config";
-import { ID } from "appwrite";
-import { Storage } from "appwrite";
+import { ID, Storage } from "appwrite";
 
 export class StorageService {
     client;
@@ -37,12 +36,9 @@ export class StorageService {
         }
     }
 
-    async getFilePreview(fileId) {
+    getFilePreview(fileId) {
         try {
-            return await this.storage.getFilePreview(
-                config.appwriteBucketId,
-                fileId
-            );
+            return this.storage.getFilePreview(config.appwriteBucketId, fileId);
         } catch (error) {
             console.log(error);
             return false;

@@ -5,14 +5,14 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import {
-    Home,
+    AddPostPage,
+    MyPostsPage,
     AuthLayout,
+    EditPostPage,
+    HomePage,
     LoginPage,
+    PostPage,
     SignupPage,
-    AllPosts,
-    AddPost,
-    EditPost,
-    Post,
 } from "./components";
 
 const router = createBrowserRouter([
@@ -22,12 +22,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <HomePage />,
             },
             {
                 path: "/login",
                 element: (
-                    <AuthLayout authenticationRquired={false}>
+                    <AuthLayout authenticationRequired={false}>
                         <LoginPage />
                     </AuthLayout>
                 ),
@@ -35,43 +35,43 @@ const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: (
-                    <AuthLayout authenticationRquired={false}>
+                    <AuthLayout authenticationRequired={false}>
                         <SignupPage />
                     </AuthLayout>
                 ),
             },
             {
-                path: "/all-posts",
+                path: "/my-posts",
                 element: (
-                    <AuthLayout authenticationRquired={true}>
+                    <AuthLayout authenticationRequired={true}>
                         {" "}
-                        <AllPosts />
+                        <MyPostsPage />
                     </AuthLayout>
                 ),
             },
             {
                 path: "/add-post",
                 element: (
-                    <AuthLayout authenticationRquired={false}>
+                    <AuthLayout authenticationRequired={true}>
                         {" "}
-                        <AddPost />
+                        <AddPostPage />
                     </AuthLayout>
                 ),
             },
             {
-                path: "/add-post/:slug",
+                path: "/edit-post/:slug",
                 element: (
-                    <AuthLayout authenticationRquired={false}>
+                    <AuthLayout authenticationRequired={true}>
                         {" "}
-                        <EditPost />
+                        <EditPostPage />
                     </AuthLayout>
                 ),
             },
             {
                 path: "/post/:slug",
                 element: (
-                    <AuthLayout authenticationRquired={false}>
-                        <Post />
+                    <AuthLayout authenticationRequired={false}>
+                        <PostPage />
                     </AuthLayout>
                 ),
             },

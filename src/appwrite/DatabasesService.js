@@ -1,6 +1,6 @@
-import { Databases, Query } from "appwrite";
-import getAppWriteClient from "./client.js";
+import getAppWriteClient from "./client";
 import config from "../config/config";
+import { Databases, Query } from "appwrite";
 
 export class DatabasesService {
     client;
@@ -62,13 +62,15 @@ export class DatabasesService {
         }
     }
 
-    async getPost(slug) {
+    async getPost(slug, queries = []) {
         try {
-            return await this.databases.getDocument(
+            const result = await this.databases.getDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                slug
+                slug,
+                queries
             );
+            return result;
         } catch (error) {
             console.log(error);
             return false;
