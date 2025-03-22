@@ -10,8 +10,10 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action) => {
-            state.isUserAuthenticated = true;
-            state.userId = action.payload.userData.$id;
+            if (action.payload.userData && action.payload.userData.$id) {
+                state.isUserAuthenticated = true;
+                state.userId = action.payload.userData.$id;
+            }
         },
 
         logout: (state) => {

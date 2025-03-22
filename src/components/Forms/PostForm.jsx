@@ -38,7 +38,9 @@ const PostForm = ({ post }) => {
 
     const submit = async (data) => {
         if (post) {
-            const file = await storageService.uploadFile(data.image[0]);
+            const file = data.image[0]
+                ? await storageService.uploadFile(data.image[0])
+                : null;
 
             if (file) {
                 storageService.deleteFile(post.featuredImage);
@@ -46,7 +48,7 @@ const PostForm = ({ post }) => {
 
             const dbPost = await databasesService.updatePost(post.$id, {
                 ...data,
-                featuredImage: file ? file.$id : null,
+                featuredImage: file ? file.$id : post.featuredImage,
             });
 
             if (dbPost) {
